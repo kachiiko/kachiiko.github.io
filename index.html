@@ -39,17 +39,16 @@
       margin-bottom: 2rem;
     }
 
-/* Highlight H1 dengan efek shadow */
-.box h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #fff; /* tulisan putih */
-  display: inline-block;
-  background-color: #dac6ff; /* ungu highlight */
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* efek shadow */
-}
+    .box h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #fff;
+      display: inline-block;
+      background-color: #dac6ff;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
     .slider-wrapper {
       max-width:500px; 
@@ -108,7 +107,6 @@
     }
     .secret-link:hover { color:#a77dff; }
 
-    /* NAV BAR */
     .divider {
       border-top: 1px solid #ccc;
       margin: 2rem 0 1rem;
@@ -140,15 +138,13 @@
       font-weight: 300;
     }
     
-    /* Pastikan semua teks pakai Poppins */
-body, p, h1, h2, h3, h4, h5, h6, ul, li, a, button, span {
-    font-family: 'Poppins', sans-serif;
-}
+    body, p, h1, h2, h3, h4, h5, h6, ul, li, a, button, span {
+      font-family: 'Poppins', sans-serif;
+    }
   </style>
 </head>
 <body>
   <main class="content">
-    <!-- home -->
     <section id="home" class="active">
       <div class="box">
         <h1>home 🏠</h1>
@@ -178,7 +174,6 @@ body, p, h1, h2, h3, h4, h5, h6, ul, li, a, button, span {
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section id="about">
       <div class="box">
         <h1>abt 💭</h1>
@@ -190,37 +185,33 @@ body, p, h1, h2, h3, h4, h5, h6, ul, li, a, button, span {
           <li><strong>general:</strong> 09</li>
           <li><strong>bio:</strong> makin smth in my pressure, kinda weird for maself i guess—but idgaf 😃</li>
         </ul>
-
         <div class="divider"></div>
         <div class="nav-btns" id="about-nav"></div>
       </div>
     </section>
 
-    <!-- SERVICE -->
     <section id="service">
       <div class="box">
         <h1>service 🏥</h1>
         <p style="font-size:0.9rem;">smth u gotta see when ur tired 🤍</p>
-      <div style="display:flex; flex-direction:column; gap:0.5rem; margin-top:0.5rem;">
-       <p style="font-size:0.8rem;"> <a href="https://youtu.be/olpzUyp0c3U" target="_blank" class="link-btn">teamies family trip</a>
-        <a href="https://youtu.be/yWCIKQpKFME" target="_blank" class="link-btn">judo club #2</a>
-        <a href="https://youtu.be/GJM3BrA4xPY" target="_blank" class="link-btn">naissance de &team</a>
-        <a href="https://youtu.be/pATvex8f9kU" target="_blank" class="link-btn">uts extend ver</a>
-        <a href="https://youtu.be/NXEVsmruw0k" target="_blank" class="link-btn">hamburger tutorial #1</a>
-
+        <div style="display:flex; flex-direction:column; gap:0.5rem; margin-top:0.5rem;">
+          <a href="https://youtu.be/olpzUyp0c3U" target="_blank" class="link-btn">teamies family trip</a>
+          <a href="https://youtu.be/yWCIKQpKFME" target="_blank" class="link-btn">judo club #2</a>
+          <a href="https://youtu.be/GJM3BrA4xPY" target="_blank" class="link-btn">naissance de &team</a>
+          <a href="https://youtu.be/pATvex8f9kU" target="_blank" class="link-btn">uts extend ver</a>
+          <a href="https://youtu.be/NXEVsmruw0k" target="_blank" class="link-btn">hamburger tutorial #1</a>
+        </div>
         <div class="divider"></div>
         <div class="nav-btns" id="service-nav"></div>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact">
       <div class="box">
         <h1>contact ☎️</h1>
         <p style="font-size:0.9rem;">chitchat zone noted 🤓</p>
-       <p style="font-size:0.8rem;"><a href="https://www.wattpad.com/user/kachiko" class="link-btn">me on wp</a>
+        <a href="https://www.wattpad.com/user/kachiko" class="link-btn">me on wp</a>
         <a href="https://whatsapp.com/channel/0029VbBg93M0AgW33nAy5C3J" class="link-btn">wassup ch</a>
-
         <div class="divider"></div>
         <div class="nav-btns" id="contact-nav"></div>
       </div>
@@ -245,7 +236,6 @@ body, p, h1, h2, h3, h4, h5, h6, ul, li, a, button, span {
       return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
-    // Generate nav buttons
     pages.forEach(page => {
       const nav = document.getElementById(page + '-nav');
       pages.forEach(p => {
@@ -275,28 +265,13 @@ body, p, h1, h2, h3, h4, h5, h6, ul, li, a, button, span {
     const slides = document.querySelectorAll(".slider img");
     const totalSlides = slides.length;
     let index = 0;
-    let isTransitioning = false;
 
     function moveToSlide(i) {
-      if (isTransitioning) return;
-      isTransitioning = true;
-      slider.style.transition = "transform 0.5s ease";
-      slider.style.transform = `translateX(${-i * 100}%)`;
       index = i;
-
-      slider.addEventListener("transitionend", () => {
-        if (index === totalSlides - 1) {
-          slider.style.transition = "none";
-          index = 0;
-          slider.style.transform = `translateX(0)`;
-        }
-        if (index < 0) {
-          slider.style.transition = "none";
-          index = totalSlides - 2;
-          slider.style.transform = `translateX(${-index * 100}%)`;
-        }
-        isTransitioning = false;
-      }, { once: true });
+      if(index < 0) index = totalSlides - 1;
+      if(index >= totalSlides) index = 0;
+      slider.style.transition = "transform 0.5s ease";
+      slider.style.transform = `translateX(${-index * 100}%)`;
     }
 
     prevBtn.addEventListener("click", () => moveToSlide(index - 1));
