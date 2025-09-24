@@ -18,10 +18,7 @@
       margin: auto;
     }
 
-    section {
-      display: none;
-      animation: fadeIn 0.5s ease;
-    }
+    section { display: none; animation: fadeIn 0.5s ease; }
     section.active { display: block; }
 
     @keyframes fadeIn {
@@ -51,35 +48,38 @@
     }
 
     .slider-wrapper {
-      max-width:500px; 
-      margin:2rem auto; 
-      position:relative; 
-      overflow:hidden; 
-      border-radius:15px; 
-      box-shadow:0 4px 10px rgba(0,0,0,0.15);
+      width: 100%; 
+      max-width: 500px; 
+      margin: 2rem auto; 
+      position: relative; 
+      overflow: hidden; 
+      border-radius: 15px; 
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     }
     .slider {
-      display:flex; 
-      transition:transform 0.5s ease;
+      display: flex; 
+      transition: transform 0.5s ease;
     }
     .slider img {
-      width:100%; 
-      flex-shrink:0;
+      width: 100%; 
+      height: 300px; /* bisa kamu ubah sesuai kebutuhan */
+      flex-shrink: 0;
+      object-fit: cover; /* biar full tanpa potongan */
     }
     .prev, .next {
-      position:absolute; 
-      top:50%; 
-      transform:translateY(-50%); 
-      background:#be9cff; 
-      border:none; 
-      color:#fff; 
-      padding:0.5rem 1rem; 
-      border-radius:50%; 
-      cursor:pointer;
-      z-index:10;
+      position: absolute; 
+      top: 50%; 
+      transform: translateY(-50%); 
+      background: #be9cff; 
+      border: none; 
+      color: #fff; 
+      padding: 0.5rem 1rem; 
+      border-radius: 50%; 
+      cursor: pointer;
+      z-index: 10;
     }
-    .prev { left:10px; }
-    .next { right:10px; }
+    .prev { left: 10px; }
+    .next { right: 10px; }
 
     .link-btn {
       display:inline-block; 
@@ -107,10 +107,8 @@
     }
     .secret-link:hover { color:#a77dff; }
 
-    .divider {
-      border-top: 1px solid #ccc;
-      margin: 2rem 0 1rem;
-    }
+    .divider { border-top: 1px solid #ccc; margin: 2rem 0 1rem; }
+
     .nav-btns {
       display:flex;
       justify-content:center;
@@ -145,10 +143,10 @@
 </head>
 <body>
   <main class="content">
-    <!-- home -->
+    <!-- HOME -->
     <section id="home" class="active">
       <div class="box">
-        <h1>home 🏠 </h1>
+        <h1>home 🏠 </h1>
         <p style="font-size:1.0rem;">Welcome home! Okaeri^^</p>
 
         <div class="slider-wrapper">
@@ -163,8 +161,8 @@
             <img src="about2.jpg">
             <img src="about3.jpg">
           </div>
-          <button class="prev">></button>
-          <button class="next"><</button>
+          <button class="prev"><</button>
+          <button class="next">></button>
         </div>
 
         <p style="font-size:0.8rem;">randomly found these cutie on pinterest 𐙚</p>
@@ -199,7 +197,7 @@
         <h1>service 🏥</h1>
         <p style="font-size:0.9rem;">smth u gotta see when ur tired 🤍</p>
         <div style="display:flex; flex-direction:column; gap:0.5rem; margin-top:0.5rem;">
-          <a href="https://youtu.be/olpzUyp0c3U" target="_blank" class="link-btn">teamies family trip</a>
+         <p style="font-size:0.9rem;"><a href="https://youtu.be/olpzUyp0c3U" target="_blank" class="link-btn">teamies family trip</a>
           <a href="https://youtu.be/yWCIKQpKFME" target="_blank" class="link-btn">judo club #2</a>
           <a href="https://youtu.be/GJM3BrA4xPY" target="_blank" class="link-btn">naissance de &team</a>
           <a href="https://youtu.be/pATvex8f9kU" target="_blank" class="link-btn">uts extend ver</a>
@@ -239,9 +237,7 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    function capitalize(str) {
-      return str.charAt(0).toUpperCase() + str.slice(1);
-    }
+    function capitalize(str) { return str.charAt(0).toUpperCase() + str.slice(1); }
 
     pages.forEach(page => {
       const nav = document.getElementById(page + '-nav');
@@ -288,7 +284,7 @@
       isTransitioning = true;
       slider.style.transition = "transform 0.5s ease";
       index = i;
-      slider.style.transform = `(${-slideWidth * index}px)`;
+      slider.style.transform = `translateX(${-slideWidth * index}px)`; // ✅ FIXED
     }
 
     slider.addEventListener("transitionend", () => {
