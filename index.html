@@ -39,16 +39,17 @@
       margin-bottom: 2rem;
     }
 
-    .box h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #fff;
-      display: inline-block;
-      background-color: #dac6ff;
-      padding: 0.5rem 1rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
+/* Highlight H1 dengan efek shadow */
+.box h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #fff; /* tulisan putih */
+  display: inline-block;
+  background-color: #dac6ff; /* ungu highlight */
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* efek shadow */
+}
 
     .slider-wrapper {
       max-width:500px; 
@@ -107,6 +108,7 @@
     }
     .secret-link:hover { color:#a77dff; }
 
+    /* NAV BAR */
     .divider {
       border-top: 1px solid #ccc;
       margin: 2rem 0 1rem;
@@ -138,16 +140,18 @@
       font-weight: 300;
     }
     
-    body, p, h1, h2, h3, h4, h5, h6, ul, li, a, button, span {
-      font-family: 'Poppins', sans-serif;
-    }
+    /* Pastikan semua teks pakai Poppins */
+body, p, h1, h2, h3, h4, h5, h6, ul, li, a, button, span {
+    font-family: 'Poppins', sans-serif;
+}
   </style>
 </head>
 <body>
   <main class="content">
+    <!-- home -->
     <section id="home" class="active">
       <div class="box">
-        <h1>home 🏠</h1>
+        <h1>home 🏠 </h1>
         <p style="font-size:1.0rem;">Welcome home! Okaeri^^</p>
 
         <div class="slider-wrapper">
@@ -158,12 +162,12 @@
             <img src="andteamhome4.jpg">
             <img src="andteamhome5.jpg">
             <img src="andteamhome6.jpg">
-            <img src="about1.jpg">
-            <img src="about2.jpg">
-            <img src="about3.jpg">
+            	<img src="about1.jpg">
+            	<img src="about2.jpg">
+            	<img src="about3.jpg">
           </div>
-          <button class="prev">‹</button>
-          <button class="next">›</button>
+          <button class="prev">></button>
+          <button class="next"><</button>
         </div>
 
         <p style="font-size:0.8rem;">randomly found these cutie on pinterest 𐙚</p>
@@ -174,44 +178,49 @@
       </div>
     </section>
 
+    <!-- ABOUT -->
     <section id="about">
       <div class="box">
         <h1>abt 💭</h1>
         <h2 style="color:#be9cff;">Kaciie☘️</h2>
         <ul style="list-style:none; padding:0; font-size:0.85rem; line-height:1.8;">
-          <li><strong>pro:</strong> stay/lunè</li>
+          <li><strong>pro:</strong> stay/luné</li>
           <li><strong>id:</strong> intx • indonesian • kpop/jpop</li>
           <li><strong>age:</strong> <span id="age">16</span> y.o.</li>
           <li><strong>general:</strong> 09</li>
           <li><strong>bio:</strong> makin smth in my pressure, kinda weird for maself i guess—but idgaf 😃</li>
         </ul>
+
         <div class="divider"></div>
         <div class="nav-btns" id="about-nav"></div>
       </div>
     </section>
 
+    <!-- SERVICE -->
     <section id="service">
       <div class="box">
         <h1>service 🏥</h1>
-        <p style="font-size:0.9rem;">smth u gotta see when ur tired 🤍</p>
-        <div style="display:flex; flex-direction:column; gap:0.5rem; margin-top:0.5rem;">
-          <a href="https://youtu.be/olpzUyp0c3U" target="_blank" class="link-btn">teamies family trip</a>
-          <a href="https://youtu.be/yWCIKQpKFME" target="_blank" class="link-btn">judo club #2</a>
-          <a href="https://youtu.be/GJM3BrA4xPY" target="_blank" class="link-btn">naissance de &team</a>
-          <a href="https://youtu.be/pATvex8f9kU" target="_blank" class="link-btn">uts extend ver</a>
-          <a href="https://youtu.be/NXEVsmruw0k" target="_blank" class="link-btn">hamburger tutorial #1</a>
-        </div>
+        <p style="font-size:0.9rem;">smth u gotta see when ur tired 🤍</p>
+      <div style="display:flex; flex-direction:column; gap:0.5rem; margin-top:0.5rem;">
+       <p style="font-size:0.8rem;"> <a href="https://youtu.be/olpzUyp0c3U" target="_blank" class="link-btn">teamies family trip</a>
+        <a href="https://youtu.be/yWCIKQpKFME" target="_blank" class="link-btn">judo club #2</a>
+        <a href="https://youtu.be/GJM3BrA4xPY" target="_blank" class="link-btn">naissance de &team</a>
+        <a href="https://youtu.be/pATvex8f9kU" target="_blank" class="link-btn">uts extend ver</a>
+        <a href="https://youtu.be/NXEVsmruw0k" target="_blank" class="link-btn">hamburger tutorial #1</a>
+
         <div class="divider"></div>
         <div class="nav-btns" id="service-nav"></div>
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact">
       <div class="box">
         <h1>contact ☎️</h1>
         <p style="font-size:0.9rem;">chitchat zone noted 🤓</p>
-        <a href="https://www.wattpad.com/user/kachiko" class="link-btn">me on wp</a>
+       <p style="font-size:0.8rem;"><a href="https://www.wattpad.com/user/kachiko" class="link-btn">me on wp</a>
         <a href="https://whatsapp.com/channel/0029VbBg93M0AgW33nAy5C3J" class="link-btn">wassup ch</a>
+
         <div class="divider"></div>
         <div class="nav-btns" id="contact-nav"></div>
       </div>
@@ -236,6 +245,7 @@
       return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
+    // Generate nav buttons
     pages.forEach(page => {
       const nav = document.getElementById(page + '-nav');
       pages.forEach(p => {
@@ -258,24 +268,53 @@
     }
     updateAgeAndYear();
 
-    // Slider
-    const slider = document.querySelector(".slider");
-    const prevBtn = document.querySelector(".prev");
-    const nextBtn = document.querySelector(".next");
-    const slides = document.querySelectorAll(".slider img");
-    const totalSlides = slides.length;
-    let index = 0;
+    // Slider dengan infinite loop
+const slider = document.querySelector(".slider");
+const slides = Array.from(slider.children);
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
+let index = 1; // start dari slide pertama yang asli (karena ada clone)
+let isTransitioning = false;
 
-    function moveToSlide(i) {
-      index = i;
-      if(index < 0) index = totalSlides - 1;
-      if(index >= totalSlides) index = 0;
-      slider.style.transition = "transform 0.5s ease";
-      slider.style.transform = `translateX(${-index * 100}%)`;
-    }
+// Clone first and last slide
+const firstClone = slides[0].cloneNode(true);
+const lastClone = slides[slides.length - 1].cloneNode(true);
+slider.appendChild(firstClone);
+slider.insertBefore(lastClone, slides[0]);
 
-    prevBtn.addEventListener("click", () => moveToSlide(index - 1));
-    nextBtn.addEventListener("click", () => moveToSlide(index + 1));
+const slideWidth = slides[0].clientWidth;
+slider.style.transform = `translateX(${-slideWidth * index}px)`;
+
+// Fungsi pindah slide
+function moveToSlide(i) {
+  if (isTransitioning) return;
+  isTransitioning = true;
+  slider.style.transition = "transform 0.5s ease";
+  index = i;
+  slider.style.transform = `translateX(${-slideWidth * index}px)`;
+}
+
+// Event listener transisi
+slider.addEventListener("transitionend", () => {
+  if (index === 0) {
+    slider.style.transition = "none";
+    index = slides.length;
+    slider.style.transform = `translateX(${-slideWidth * index}px)`;
+  }
+  if (index === slides.length + 1) {
+    slider.style.transition = "none";
+    index = 1;
+    slider.style.transform = `translateX(${-slideWidth * index}px)`;
+  }
+  isTransitioning = false;
+});
+
+// Tombol
+prevBtn.addEventListener("click", () => moveToSlide(index - 1));
+nextBtn.addEventListener("click", () => moveToSlide(index + 1));
+
+// Optional: auto-slide setiap 3 detik
+setInterval(() => moveToSlide(index + 1), 3000);
   </script>
 </body>
 </html>
