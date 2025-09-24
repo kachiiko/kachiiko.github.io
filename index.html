@@ -17,7 +17,6 @@
       max-width: 900px;
       margin: auto;
     }
-
     section { display: none; animation: fadeIn 0.5s ease; }
     section.active { display: block; }
 
@@ -47,53 +46,54 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
+    /* === SLIDER === */
     .slider-wrapper {
-      width: 100%; 
-      max-width: 500px; 
-      margin: 2rem auto; 
-      position: relative; 
-      overflow: hidden; 
-      border-radius: 15px; 
+      width: 100%;
+      max-width: 500px;
+      margin: 2rem auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     }
-    .slider {
-      display: flex; 
-      transition: transform 0.5s ease;
+    .slides img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover; /* gambar full */
+      display: none;
     }
-    .slider img {
-      width: 100%; 
-      height: 300px; 
-      flex-shrink: 0;
-      object-fit: cover;
+    .slides img.active {
+      display: block;
     }
     .prev, .next {
-      position: absolute; 
-      top: 50%; 
-      transform: translateY(-50%); 
-      background: #C2DAFF; 
-      border: none; 
-      color: #fff; 
-      padding: 0.5rem 1rem; 
-      border-radius: 50%; 
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(190,156,255,0.6); /* transparan */
+      border: none;
+      color: #fff;
+      padding: 0.5rem 0.9rem;
+      border-radius: 50%;
       cursor: pointer;
       z-index: 10;
+      font-size: 18px;
       transition: 0.3s;
     }
     .prev:hover, .next:hover {
-      background: #94BEFF;
+      background: rgba(167,125,255,0.9);
     }
     .prev { left: 10px; }
     .next { right: 10px; }
 
     .link-btn {
-      display:inline-block; 
-      background:#be9cff; 
-      color:#fff; 
-      padding:0.7rem 1.5rem; 
-      border-radius:25px; 
-      text-decoration:none; 
-      font-weight:bold; 
-      transition:0.3s; 
+      display:inline-block;
+      background:#be9cff;
+      color:#fff;
+      padding:0.7rem 1.5rem;
+      border-radius:25px;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.3s;
       text-align:center;
       margin:0.3rem;
     }
@@ -139,7 +139,7 @@
       padding: 1.5rem;
       font-weight: 300;
     }
-    
+
     body, p, h1, h2, h3, h4, h5, h6, ul, li, a, button, span {
       font-family: 'Poppins', sans-serif;
     }
@@ -154,8 +154,8 @@
         <p style="font-size:1.0rem;">Welcome home! Okaeri^^</p>
 
         <div class="slider-wrapper">
-          <div class="slider">
-            <img src="andteamhome1.jpg">
+          <div class="slides">
+            <img src="andteamhome1.jpg" class="active">
             <img src="andteamhome2.jpg">
             <img src="andteamhome3.jpg">
             <img src="andteamhome4.jpg">
@@ -165,8 +165,8 @@
             <img src="about2.jpg">
             <img src="about3.jpg">
           </div>
-          <button class="prev"><</button>
-          <button class="next">></button>
+          <button class="prev">&#10094;</button>
+          <button class="next">&#10095;</button>
         </div>
 
         <p style="font-size:0.8rem;">randomly found these cutie on pinterest 𐙚</p>
@@ -189,7 +189,6 @@
           <li><strong>general:</strong> 09</li>
           <li><strong>bio:</strong> makin smth in my pressure, kinda weird for maself i guess—but idgaf 😃</li>
         </ul>
-
         <div class="divider"></div>
         <div class="nav-btns" id="about-nav"></div>
       </div>
@@ -265,48 +264,24 @@
     }
     updateAgeAndYear();
 
-    // Slider tanpa auto-slide
-    const slider = document.querySelector(".slider");
-    let slides = Array.from(slider.children);
-    const prevBtn = document.querySelector(".prev");
-    const nextBtn = document.querySelector(".next");
-    let index = 1;
-    let isTransitioning = false;
+    // === SLIDER (NO AUTO, NO CLONE) ===
+    const slides = document.querySelectorAll(".slides img");
+    let idx = 0;
 
-    // Clone first and last slide
-    const firstClone = slides[0].cloneNode(true);
-    const lastClone = slides[slides.length - 1].cloneNode(true);
-    slider.appendChild(firstClone);
-    slider.insertBefore(lastClone, slides[0]);
-    slides = Array.from(slider.children);
-
-    const slideWidth = slides[0].clientWidth;
-    slider.style.transform = `translateX(${-slideWidth * index}px)`;
-
-    function moveToSlide(i) {
-      if (isTransitioning) return;
-      isTransitioning = true;
-      slider.style.transition = "transform 0.5s ease";
-      index = i;
-      slider.style.transform = `translateX(${-slideWidth * index}px)`;
+    function showSlide(i) {
+      slides.forEach((img, n) => img.classList.remove("active"));
+      slides[i].classList.add("active");
     }
 
-    slider.addEventListener("transitionend", () => {
-      if (index === 0) {
-        slider.style.transition = "none";
-        index = slides.length - 2;
-        slider.style.transform = `translateX(${-slideWidth * index}px)`;
-      }
-      if (index === slides.length - 1) {
-        slider.style.transition = "none";
-        index = 1;
-        slider.style.transform = `translateX(${-slideWidth * index}px)`;
-      }
-      isTransitioning = false;
+    document.querySelector(".next").addEventListener("click", () => {
+      idx = (idx + 1) % slides.length;
+      showSlide(idx);
     });
 
-    prevBtn.addEventListener("click", () => moveToSlide(index - 1));
-    nextBtn.addEventListener("click", () => moveToSlide(index + 1));
+    document.querySelector(".prev").addEventListener("click", () => {
+      idx = (idx - 1 + slides.length) % slides.length;
+      showSlide(idx);
+    });
   </script>
 </body>
 </html>
