@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>kachiko’s page</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
+ <style>
   body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -13,7 +13,7 @@
     color: #fff;
   }
   .content {
-    padding: 2rem;
+    padding: 1rem;
     max-width: 900px;
     margin: auto;
   }
@@ -28,40 +28,43 @@
   .box {
     background: #fff;
     color: #333;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 0.8rem; /* makin kecil */
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     text-align: center;
-    margin-bottom: 2rem;
+    margin: 1rem auto;
 
-    /* 🔽 bikin semua box sama tinggi */
-    min-height: 550px;       /* atur tinggi standar */
+    /* ukuran fix seragam mini */
+    width: 320px;
+    height: 260px;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    font-size: 0.7rem; /* kecilin semua isi */
   }
 
   .box h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
     color: #fff;
     display: inline-block;
     background-color: #dac6ff;
-    padding: 0.5rem 1rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
   }
 
   /* === SLIDER === */
   .slider-wrapper {
     width: 100%;
-    max-width: 500px;
-    margin: 2rem auto;
+    max-width: 200px;
+    margin: 0.5rem auto;
     position: relative;
     overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    height: 300px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    height: 120px;
   }
   .slides img {
     width: 100%;
@@ -71,7 +74,7 @@
     top: 0;
     left: 0;
     opacity: 0;
-    transition: opacity 0.8s ease;
+    transition: opacity 0.5s ease;
   }
   .slides img.active {
     opacity: 1;
@@ -81,64 +84,64 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(190,156,255,0.15);
+    background: rgba(190,156,255,0.2);
     border: none;
     color: #fff;
-    padding: 0.5rem 0.9rem;
+    padding: 0.2rem 0.5rem;
     border-radius: 50%;
     cursor: pointer;
     z-index: 10;
-    font-size: 18px;
+    font-size: 12px;
     transition: 0.3s;
   }
-  .prev:hover, .next:hover {
-    background: rgba(167,125,255,0.5);
-  }
-  .prev { left: 10px; }
-  .next { right: 10px; }
+  .prev:hover, .next:hover { background: rgba(167,125,255,0.6); }
+  .prev { left: 5px; }
+  .next { right: 5px; }
 
   .link-btn {
     display:inline-block;
     background:#be9cff;
     color:#fff;
-    padding:0.7rem 1.5rem;
-    border-radius:25px;
+    padding:0.3rem 0.7rem;
+    border-radius:15px;
     text-decoration:none;
-    font-weight:bold;
+    font-weight:600;
+    font-size:0.7rem;
     transition:0.3s;
     text-align:center;
-    margin:0.3rem;
+    margin:0.2rem;
   }
   .link-btn:hover { background:#a77dff; }
 
   .secret-link {
     display:inline-block;
-    margin-top:1rem;
+    margin-top:0.4rem;
     color:#be9cff;
     text-decoration: underline;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 600;
     transition: 0.3s;
-    font-size:0.8rem;
+    font-size:0.6rem;
   }
   .secret-link:hover { color:#a77dff; }
 
-  .divider { border-top: 1px solid #ccc; margin: 2rem 0 1rem; }
+  .divider { border-top: 1px solid #ccc; margin: 0.8rem 0 0.5rem; }
 
   .nav-btns {
     display:flex;
     justify-content:center;
-    gap:10px;
-    margin-top:1rem;
+    gap:5px;
+    margin-top:0.3rem;
   }
   .nav-btns button {
     flex:1;
     background:#dac6ff;
     border:none;
     color:#fff;
-    padding:0.6rem 1rem;
-    border-radius:8px;
-    font-weight:bold;
+    padding:0.3rem 0.5rem;
+    border-radius:6px;
+    font-weight:600;
+    font-size:0.6rem;
     cursor:pointer;
     transition:0.3s;
   }
@@ -148,7 +151,8 @@
     background-color: #dac6ff;
     color: #fff;
     text-align: center;
-    padding: 1.5rem;
+    padding: 0.8rem;
+    font-size: 0.7rem;
     font-weight: 300;
   }
 
