@@ -1,305 +1,306 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>kachiko’s page</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
- <style>
-  body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    background-color: #dac6ff;
-    color: #fff;
-  }
-  .content {
-    padding: 1rem;
-    max-width: 900px;
-    margin: auto;
-  }
-  section { display: none; animation: fadeIn 0.5s ease; }
-  section.active { display: block; }
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>kachiko’s page</title>  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">  
+  <style>  
+    body {  
+      font-family: 'Poppins', sans-serif;  
+      margin: 0;  
+      background-color: #dac6ff;  
+      color: #fff;  
+    }  
+    .content {  
+      padding: 1rem;  
+      max-width: 900px;  
+      margin: auto;  
+    }  
+    section { 
+      display: none; 
+      animation: fadeIn 0.5s ease; 
+    }  
+    section.active { display: block; }  
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .box {
-    background: #fff;
-    color: #333;
-    padding: 0.8rem; /* makin kecil */
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    text-align: center;
-    margin: 1rem auto;
-
-    /* ukuran fix seragam mini */
-    width: 320px;
-    height: 260px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-size: 0.7rem; /* kecilin semua isi */
-  }
-
-  .box h1 {
-    font-size: 0.9rem;
-    margin-bottom: 0.3rem;
-    color: #fff;
-    display: inline-block;
-    background-color: #dac6ff;
-    padding: 0.3rem 0.6rem;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  }
-
-  /* === SLIDER === */
-.slider-wrapper {
-  width: 100%;
-  max-width: 250px;   /* awalnya 200px, aku gedein dikit */
-  margin: 0.5rem auto;
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-  height: 150px;      /* awalnya 120px → aku tambahin */
-}
-.slides img {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-}
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-.slides img.active {
-  opacity: 1;
-  z-index: 1;
-}
-  .prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(190,156,255,0.2);
-    border: none;
-    color: #fff;
-    padding: 0.2rem 0.5rem;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 10;
-    font-size: 12px;
-    transition: 0.3s;
-  }
-  .prev:hover, .next:hover { background: rgba(167,125,255,0.6); }
-  .prev { left: 5px; }
-  .next { right: 5px; }
-
-  .link-btn {
-    display:inline-block;
-    background:#be9cff;
-    color:#fff;
-    padding:0.3rem 0.7rem;
-    border-radius:15px;
-    text-decoration:none;
-    font-weight:600;
-    font-size:0.7rem;
-    transition:0.3s;
-    text-align:center;
-    margin:0.2rem;
-  }
-  .link-btn:hover { background:#a77dff; }
-
-  .secret-link {
-    display:inline-block;
-    margin-top:0.4rem;
-    color:#be9cff;
-    text-decoration: underline;
-    cursor: pointer;
-    font-weight: 600;
-    transition: 0.3s;
-    font-size:0.6rem;
-  }
-  .secret-link:hover { color:#a77dff; }
-
-  .divider { border-top: 1px solid #ccc; margin: 0.8rem 0 0.5rem; }
-
-  .nav-btns {
-    display:flex;
-    justify-content:center;
-    gap:5px;
-    margin-top:0.3rem;
-  }
-  .nav-btns button {
-    flex:1;
-    background:#dac6ff;
-    border:none;
-    color:#fff;
-    padding:0.3rem 0.5rem;
-    border-radius:6px;
-    font-weight:600;
-    font-size:0.6rem;
-    cursor:pointer;
-    transition:0.3s;
-  }
-  .nav-btns button:hover { background:#a77dff; }
-
-  .footer {
-    background-color: #dac6ff;
-    color: #fff;
-    text-align: center;
-    padding: 0.8rem;
-    font-size: 0.7rem;
-    font-weight: 300;
-  }
-
-  body, p, h1, h2, h3, h4, h5, h6, ul, li, a, button, span {
-    font-family: 'Poppins', sans-serif;
-  }
-</style>
-</head>
-<body>
-  <main class="content">
-    <!-- HOME -->
-    <section id="home" class="active">
-      <div class="box">
-        <h1>home 🏠 </h1>
-        <p style="font-size:0.5rem;">Welcome home! Okaeri^^</p>
-
-        <div class="slider-wrapper">
-          <div class="slides">
-            <img src="andteamhome1.jpg" class="active">
-            <img src="andteamhome2.jpg">
-            <img src="andteamhome3.jpg">
-            <img src="andteamhome4.jpg">
-            <img src="andteamhome5.jpg">
-            <img src="andteamhome6.jpg">
-            <img src="about1.jpg">
-            <img src="about2.jpg">
-            <img src="about3.jpg">
-          </div>
-          <button class="prev">&#10094;</button>
-          <button class="next">&#10095;</button>
-        </div>
-
-        <p style="font-size:0.5rem;">randomly found these cutie on pinterest 𐙚</p>
-        <a href="https://secreto.site/a68lx7" target="_blank" class="secret-link"<p style="font-size:0.5rem;">kachiko’s secreto</a>
-
-        <div class="divider"></div>
-        <div class="nav-btns" id="home-nav"></div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="box">
-        <h1>abt 💭</h1>
-        <h2 style="color:#be9cff;">Kaciie☘️</h2>
-        <ul style="list-style:none; padding:0; font-size:0.5rem; line-height:1.8;">
-          <li><strong>pro:</strong> stay/luné</li>
-          <li><strong>id:</strong> intx • indonesian • kpop/jpop</li>
-          <li><strong>age:</strong> <span id="age">16</span> y.o.</li>
-          <li><strong>general:</strong> 09</li>
-          <li><strong>bio:</strong> makin smth in my pressure, kinda weird for maself i guess—but idgaf 😃</li>
-        </ul>
-        <div class="divider"></div>
-        <div class="nav-btns" id="about-nav"></div>
-      </div>
-    </section>
-
-    <!-- SERVICE -->
-    <section id="service">
-      <div class="box">
-        <h1>service 🏥</h1>
-        <p style="font-size:0.5rem;">smth u gotta see when ur tired 🤍</p>
-        <div style="display:flex; flex-direction:column; gap:0.5rem; margin-top:0.5rem;">
-        	<p style="font-size:0.5rem;">
-          <a href="https://youtu.be/olpzUyp0c3U" target="_blank" class="link-btn"<p style="font-size:0.5rem;">teamies family trip</a>
-          <a href="https://youtu.be/yWCIKQpKFME" target="_blank" class="link-btn"<p style="font-size:0.5rem;">judo club #2</a>
-          <a href="https://youtu.be/GJM3BrA4xPY" target="_blank" class="link-btn"<p style="font-size:0.5rem;">naissance de &team</a>
-          <a href="https://youtu.be/pATvex8f9kU" target="_blank" class="link-btn"<p style="font-size:0.5rem;">uts extend ver</a>
-          <a href="https://youtu.be/NXEVsmruw0k" target="_blank" class="link-btn"<p style="font-size:0.5rem;">hamburger tutorial #1</a>
-        </div>
-        <div class="divider"></div>
-        <div class="nav-btns" id="service-nav"></div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="box">
-        <h1>contact ☎️</h1>
-        <p style="font-size:0.5rem;">chitchat zone noted 🤓</p>
-        <p style="font-size:0.5rem;">
-          <a href="https://www.wattpad.com/user/kachiko" class="link-btn"<p style="font-size:0.5rem;">me on wp</a>
-          <a href="https://whatsapp.com/channel/0029VbBg93M0AgW33nAy5C3J" class="link-btn"<p style="font-size:0.5rem;">wassup ch</a>
-        </p>
-        <div class="divider"></div>
-        <div class="nav-btns" id="contact-nav"></div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <p>©<span id="year"></span> made by kaciie☘︎</p>
-  </footer>
-
-  <script>
-    const birthDate = new Date("2009-09-11");
-    const pages = ['home','about','service','contact'];
-
-    function showPage(id) {
-      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
-      document.getElementById(id).classList.add("active");
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    function capitalize(str) { return str.charAt(0).toUpperCase() + str.slice(1); }
+    .box {
+      background: #fff;
+      color: #333;
+      padding: 0.8rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+      margin: 1rem auto;
 
-    pages.forEach(page => {
-      const nav = document.getElementById(page + '-nav');
-      pages.forEach(p => {
-        if(p !== page){
-          const btn = document.createElement('button');
-          btn.textContent = capitalize(p);
-          btn.onclick = () => showPage(p);
-          nav.appendChild(btn);
-        }
-      });
-    });
+      /* ukuran fix seragam → 3:4 */
+      width: 300px;
+      height: 400px;
 
-    function updateAgeAndYear() {
-      const today = new Date();
-      let age = today.getFullYear() - birthDate.getFullYear();
-      const m = today.getMonth() - birthDate.getMonth();
-      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) age--;
-      document.getElementById("age").textContent = age;
-      document.getElementById("year").textContent = today.getFullYear();
-    }
-    updateAgeAndYear();
-
-    // === SLIDER (FADE TRANSITION) ===
-    const slides = document.querySelectorAll(".slides img");
-    let idx = 0;
-
-    function showSlide(i) {
-      slides.forEach((img, n) => img.classList.remove("active"));
-      slides[i].classList.add("active");
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: 0.7rem;
     }
 
-    document.querySelector(".next").addEventListener("click", () => {
-      idx = (idx + 1) % slides.length;
-      showSlide(idx);
-    });
+    .box h1 {
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+      color: #fff;
+      display: inline-block;
+      background-color: #dac6ff;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
 
-    document.querySelector(".prev").addEventListener("click", () => {
-      idx = (idx - 1 + slides.length) % slides.length;
-      showSlide(idx);
-    });
-  </script>
-</body>
+    /* === SLIDER === */
+    .slider-wrapper {
+      width: 100%;
+      max-width: 250px;
+      margin: 0.5rem auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+      aspect-ratio: 3/4;  /* rasio 3:4 */
+    }
+
+    .slides img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* full isi frame */
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .slides img.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(190,156,255,0.2);
+      border: none;
+      color: #fff;
+      padding: 0.2rem 0.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+      font-size: 12px;
+      transition: 0.3s;
+    }
+    .prev:hover, .next:hover { background: rgba(167,125,255,0.6); }
+    .prev { left: 5px; }
+    .next { right: 5px; }
+
+    .link-btn {
+      display:inline-block;
+      background:#be9cff;
+      color:#fff;
+      padding:0.3rem 0.7rem;
+      border-radius:15px;
+      text-decoration:none;
+      font-weight:600;
+      font-size:0.7rem;
+      transition:0.3s;
+      text-align:center;
+      margin:0.2rem;
+    }
+    .link-btn:hover { background:#a77dff; }
+
+    .secret-link {
+      display:inline-block;
+      margin-top:0.4rem;
+      color:#be9cff;
+      text-decoration: underline;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+      font-size:0.6rem;
+    }
+    .secret-link:hover { color:#a77dff; }
+
+    .divider { border-top: 1px solid #ccc; margin: 0.8rem 0 0.5rem; }
+
+    .nav-btns {
+      display:flex;
+      justify-content:center;
+      gap:5px;
+      margin-top:0.3rem;
+    }
+    .nav-btns button {
+      flex:1;
+      background:#dac6ff;
+      border:none;
+      color:#fff;
+      padding:0.3rem 0.5rem;
+      border-radius:6px;
+      font-weight:600;
+      font-size:0.6rem;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    .nav-btns button:hover { background:#a77dff; }
+
+    .footer {
+      background-color: #dac6ff;
+      color: #fff;
+      text-align: center;
+      padding: 0.8rem;
+      font-size: 0.7rem;
+      font-weight: 300;
+    }
+
+    body, p, h1, h2, h3, h4, h5, h6, ul, li, a, button, span {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>  
+
+<body>  
+  <main class="content">  
+    <!-- HOME -->  
+    <section id="home" class="active">  
+      <div class="box">  
+        <h1>home 🏠 </h1>  
+        <p style="font-size:0.5rem;">Welcome home! Okaeri^^</p>  
+        <div class="slider-wrapper">  
+          <div class="slides">  
+            <img src="andteamhome1.jpg" class="active">  
+            <img src="andteamhome2.jpg">  
+            <img src="andteamhome3.jpg">  
+            <img src="andteamhome4.jpg">  
+            <img src="andteamhome5.jpg">  
+            <img src="andteamhome6.jpg">  
+            <img src="about1.jpg">  
+            <img src="about2.jpg">  
+            <img src="about3.jpg">  
+          </div>  
+          <button class="prev">&#10094;</button>  
+          <button class="next">&#10095;</button>  
+        </div>  
+        <p style="font-size:0.5rem;">randomly found these cutie on pinterest 𐙚</p>  
+        <a href="https://secreto.site/a68lx7" target="_blank" class="secret-link">kachiko’s secreto</a>  
+        <div class="divider"></div>  
+        <div class="nav-btns" id="home-nav"></div>  
+      </div>  
+    </section>  
+
+    <!-- ABOUT -->  
+    <section id="about">  
+      <div class="box">  
+        <h1>abt 💭</h1>  
+        <h2 style="color:#be9cff;">Kaciie☘️</h2>  
+        <ul style="list-style:none; padding:0; font-size:0.5rem; line-height:1.8;">  
+          <li><strong>pro:</strong> stay/luné</li>  
+          <li><strong>id:</strong> intx • indonesian • kpop/jpop</li>  
+          <li><strong>age:</strong> <span id="age">16</span> y.o.</li>  
+          <li><strong>general:</strong> 09</li>  
+          <li><strong>bio:</strong> makin smth in my pressure, kinda weird for maself i guess—but idgaf 😃</li>  
+        </ul>  
+        <div class="divider"></div>  
+        <div class="nav-btns" id="about-nav"></div>  
+      </div>  
+    </section>  
+
+    <!-- SERVICE -->  
+    <section id="service">  
+      <div class="box">  
+        <h1>service 🏥</h1>  
+        <p style="font-size:0.5rem;">smth u gotta see when ur tired 🤍</p>  
+        <div style="display:flex; flex-direction:column; gap:0.5rem; margin-top:0.5rem;">  
+          <a href="https://youtu.be/olpzUyp0c3U" target="_blank" class="link-btn">teamies family trip</a>  
+          <a href="https://youtu.be/yWCIKQpKFME" target="_blank" class="link-btn">judo club #2</a>  
+          <a href="https://youtu.be/GJM3BrA4xPY" target="_blank" class="link-btn">naissance de &team</a>  
+          <a href="https://youtu.be/pATvex8f9kU" target="_blank" class="link-btn">uts extend ver</a>  
+          <a href="https://youtu.be/NXEVsmruw0k" target="_blank" class="link-btn">hamburger tutorial #1</a>  
+        </div>  
+        <div class="divider"></div>  
+        <div class="nav-btns" id="service-nav"></div>  
+      </div>  
+    </section>  
+
+    <!-- CONTACT -->  
+    <section id="contact">  
+      <div class="box">  
+        <h1>contact ☎️</h1>  
+        <p style="font-size:0.5rem;">chitchat zone noted 🤓</p>  
+        <p style="font-size:0.5rem;">  
+          <a href="https://www.wattpad.com/user/kachiko" class="link-btn">me on wp</a>  
+          <a href="https://whatsapp.com/channel/0029VbBg93M0AgW33nAy5C3J" class="link-btn">wassup ch</a>  
+        </p>  
+        <div class="divider"></div>  
+        <div class="nav-btns" id="contact-nav"></div>  
+      </div>  
+    </section>
+  </main>    
+
+  <footer class="footer">  
+    <p>©<span id="year"></span> made by kaciie☘︎</p>  
+  </footer>    
+
+  <script>  
+    const birthDate = new Date("2009-09-11");  
+    const pages = ['home','about','service','contact'];  
+
+    function showPage(id) {  
+      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));  
+      document.getElementById(id).classList.add("active");  
+      window.scrollTo({ top: 0, behavior: "smooth" });  
+    }  
+
+    function capitalize(str) { return str.charAt(0).toUpperCase() + str.slice(1); }  
+
+    pages.forEach(page => {  
+      const nav = document.getElementById(page + '-nav');  
+      pages.forEach(p => {  
+        if(p !== page){  
+          const btn = document.createElement('button');  
+          btn.textContent = capitalize(p);  
+          btn.onclick = () => showPage(p);  
+          nav.appendChild(btn);  
+        }  
+      });  
+    });  
+
+    function updateAgeAndYear() {  
+      const today = new Date();  
+      let age = today.getFullYear() - birthDate.getFullYear();  
+      const m = today.getMonth() - birthDate.getMonth();  
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) age--;  
+      document.getElementById("age").textContent = age;  
+      document.getElementById("year").textContent = today.getFullYear();  
+    }  
+    updateAgeAndYear();  
+
+    // === SLIDER (FADE TRANSITION) ===  
+    const slides = document.querySelectorAll(".slides img");  
+    let idx = 0;  
+
+    function showSlide(i) {  
+      slides.forEach((img, n) => img.classList.remove("active"));  
+      slides[i].classList.add("active");  
+    }  
+
+    document.querySelector(".next").addEventListener("click", () => {  
+      idx = (idx + 1) % slides.length;  
+      showSlide(idx);  
+    });  
+
+    document.querySelector(".prev").addEventListener("click", () => {  
+      idx = (idx - 1 + slides.length) % slides.length;  
+      showSlide(idx);  
+    });  
+  </script>  
+</body>  
 </html>
