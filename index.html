@@ -31,13 +31,12 @@
     .box {
       background: #fff;
       color: #333;
-      padding: 0.8rem;
+      padding: 1rem; /* padding simetris */
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       text-align: center;
       margin: 1rem auto;
 
-      /* ukuran fix seragam → 3:4 */
       width: 300px;
       height: 400px;
 
@@ -45,17 +44,22 @@
       flex-direction: column;
       justify-content: space-between;
       font-size: 0.7rem;
+      overflow: hidden;
     }
 
     .box h1 {
       font-size: 0.9rem;
-      margin-bottom: 0.3rem;
+      margin: 0 0 0.3rem 0; /* hapus margin atas biar naik */
       color: #fff;
       display: inline-block;
       background-color: #dac6ff;
       padding: 0.3rem 0.6rem;
       border-radius: 6px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .box h2 {
+      margin: 0.4rem 0 0.2rem;
     }
 
     /* === SLIDER === */
@@ -67,13 +71,13 @@
       overflow: hidden;
       border-radius: 10px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-      aspect-ratio: 3/4;  /* rasio 3:4 */
+      aspect-ratio: 3/4;
     }
 
     .slides img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* full isi frame */
+      object-fit: cover;
       position: absolute;
       top: 0;
       left: 0;
@@ -130,7 +134,7 @@
     }
     .secret-link:hover { color:#a77dff; }
 
-    .divider { border-top: 1px solid #ccc; margin: 0.8rem 0 0.5rem; }
+    .divider { border-top: 1px solid #ccc; margin: 0.6rem 0 0.4rem; }
 
     .nav-btns {
       display:flex;
@@ -140,13 +144,13 @@
     }
     .nav-btns button {
       flex:1;
-      background:#dac6ff;
+      background:#be9cff;
       border:none;
       color:#fff;
       padding:0.3rem 0.5rem;
       border-radius:6px;
       font-weight:600;
-      font-size:0.6rem;
+      font-size:0.8rem;
       cursor:pointer;
       transition:0.3s;
     }
@@ -161,6 +165,16 @@
       font-weight: 300;
     }
 
+    .music-player {
+      font-size: 0.65rem;
+      background:#dac6ff;
+      color:#fff;
+      padding:0.4rem;
+      border-radius:8px;
+      margin-top:0.5rem;
+      line-height:1.4;
+    }
+
     body, p, h1, h2, h3, h4, h5, h6, ul, li, a, button, span {
       font-family: 'Poppins', sans-serif;
     }
@@ -171,9 +185,9 @@
   <main class="content">  
     <!-- HOME -->  
     <section id="home" class="active">  
-      <div class="box">  
-        <h1>home 🏠 </h1>  
-        <p style="font-size:0.5rem;">Welcome home! Okaeri^^</p>  
+      <div class="box"> 
+      	<h1 style="font-size:1.5rem;">home 🏠</h1>
+        <p style="font-size:0.8rem;">Welcome home! Okaeri^^</p>  
         <div class="slider-wrapper">  
           <div class="slides">  
             <img src="andteamhome1.jpg" class="active">  
@@ -189,7 +203,7 @@
           <button class="prev">&#10094;</button>  
           <button class="next">&#10095;</button>  
         </div>  
-        <p style="font-size:0.5rem;">randomly found these cutie on pinterest 𐙚</p>  
+        <p style="font-size:0.7rem;">randomly found these cutie on pinterest 𐙚</p>  
         <a href="https://secreto.site/a68lx7" target="_blank" class="secret-link">kachiko’s secreto</a>  
         <div class="divider"></div>  
         <div class="nav-btns" id="home-nav"></div>  
@@ -199,15 +213,20 @@
     <!-- ABOUT -->  
     <section id="about">  
       <div class="box">  
-        <h1>abt 💭</h1>  
-        <h2 style="color:#be9cff;">Kaciie☘️</h2>  
-        <ul style="list-style:none; padding:0; font-size:0.5rem; line-height:1.8;">  
+        <h1 style="font-size:1.5rem;">abt 💭</h1>
+        <h2 style="color:#be9cff; font-size:1.2rem;">Kaciie🍀</h2>
+        <ul style="list-style:none; padding:0; font-size:0.8rem; line-height:1.6; margin:0;">  
           <li><strong>pro:</strong> stay/luné</li>  
           <li><strong>id:</strong> intx • indonesian • kpop/jpop</li>  
           <li><strong>age:</strong> <span id="age">16</span> y.o.</li>  
           <li><strong>general:</strong> 09</li>  
           <li><strong>bio:</strong> makin smth in my pressure, kinda weird for maself i guess—but idgaf 😃</li>  
-        </ul>  
+        </ul>
+        <div class="music-player">
+          <div><strong>as sunflower - XeeN⋆.˚ ᡣ𐭩 .𖥔˚</strong></div>
+          <div>01:23 ━━━━━━●─── 02:06</div>
+          <div>⇆ ◁ ❚❚ ▷ ↻</div>
+        </div>  
         <div class="divider"></div>  
         <div class="nav-btns" id="about-nav"></div>  
       </div>  
@@ -216,14 +235,15 @@
     <!-- SERVICE -->  
     <section id="service">  
       <div class="box">  
-        <h1>service 🏥</h1>  
-        <p style="font-size:0.5rem;">smth u gotta see when ur tired 🤍</p>  
+        <h1 style="font-size:1.5rem;">service 🏥</h1>
+        <p style="font-size:0.8rem;">smth u gotta see when ur tired 🤍</p>  
         <div style="display:flex; flex-direction:column; gap:0.5rem; margin-top:0.5rem;">  
           <a href="https://youtu.be/olpzUyp0c3U" target="_blank" class="link-btn">teamies family trip</a>  
           <a href="https://youtu.be/yWCIKQpKFME" target="_blank" class="link-btn">judo club #2</a>  
           <a href="https://youtu.be/GJM3BrA4xPY" target="_blank" class="link-btn">naissance de &team</a>  
           <a href="https://youtu.be/pATvex8f9kU" target="_blank" class="link-btn">uts extend ver</a>  
           <a href="https://youtu.be/NXEVsmruw0k" target="_blank" class="link-btn">hamburger tutorial #1</a>  
+          <a href="https://youtu.be/nKROX3GldgY?si=pDg8Rg74RMD8tI3x" target="_blank" class="link-btn">ma luviee</a>  
         </div>  
         <div class="divider"></div>  
         <div class="nav-btns" id="service-nav"></div>  
@@ -233,11 +253,15 @@
     <!-- CONTACT -->  
     <section id="contact">  
       <div class="box">  
-        <h1>contact ☎️</h1>  
-        <p style="font-size:0.5rem;">chitchat zone noted 🤓</p>  
-        <p style="font-size:0.5rem;">  
-          <a href="https://www.wattpad.com/user/kachiko" class="link-btn">me on wp</a>  
-          <a href="https://whatsapp.com/channel/0029VbBg93M0AgW33nAy5C3J" class="link-btn">wassup ch</a>  
+        <h1 style="font-size:1.5rem;">contact ☎️</h1>
+        <p style="font-size:0.8rem;">chitchat n expose zone noted 🤓</p>  
+        <div style="display:flex; flex-direction:column; gap:0.5rem; margin-top:0.5rem;">  
+          <a href="https://www.wattpad.com/user/kachiko" target="_blank" class="link-btn">me on wp</a>  
+          <a href="https://whatsapp.com/channel/0029VbBg93M0AgW33nAy5C3J" target="_blank" class="link-btn">wassup ch</a>  
+          <a href="https://instagram.com/andteam_official" target="_blank" class="link-btn">my dearest</a>  
+          <a href="https://instagram.com/miniseungkim" target="_blank" class="link-btn">loml</a>  
+          <a href="https://instagram.com/sophia_laforteza" target="_blank" class="link-btn">fav gurl</a>  
+        </div>  
         </p>  
         <div class="divider"></div>  
         <div class="nav-btns" id="contact-nav"></div>  
